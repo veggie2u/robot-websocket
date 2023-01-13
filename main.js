@@ -38,6 +38,7 @@ const publishWords = () => {
 }
 
 const init = async () => {
+    console.log('Starting Hapi')
     server = Hapi.server({
         port: 3001,
         host: '0.0.0.0',
@@ -45,9 +46,9 @@ const init = async () => {
             cors: true,
         },
     })
-
+    console.log('Started on port 3001')
     await server.register(Nes)
-
+    console.log('Web sockets started')
     server.route([
         {
             method: 'GET',
